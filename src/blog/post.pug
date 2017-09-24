@@ -1,9 +1,0 @@
-extends /src/includes/layout.pug
-
-include /src/includes/post.pug
-
-block head
-	title #{file.data.title} - StraticJS
-
-block content
-	+renderPost(file, false)
