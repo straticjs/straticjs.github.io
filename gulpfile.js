@@ -23,7 +23,7 @@ var gulp = require('gulp'),
     through2 = require('through2'),
     isDist = process.argv.indexOf('serve') === -1;
 
-gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:blog']);
+gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:blog', 'build:misc']);
 gulp.task('build:blog', ['build:blog:posts', 'build:blog:index', 'build:blog:rss']);
 
 gulp.task('build:html', function() {
@@ -96,6 +96,11 @@ gulp.task('build:images', function() {
 	return gulp.src('src/img/*')
 	           .pipe(gulp.dest('dist/img'));
 
+});
+
+gulp.task('build:misc', function() {
+        return gulp.src(['.gitmodules', 'COPYING', 'favicon.ico', 'humans.txt', 'robots.txt', 'sitemap.xml', 'CNAME'])
+                   .pipe(gulp.dest('dist'));
 });
 
 gulp.task('deploy', ['build'], function(done) {
