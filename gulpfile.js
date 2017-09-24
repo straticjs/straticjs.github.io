@@ -23,7 +23,7 @@ var gulp = require('gulp'),
     through2 = require('through2'),
     isDist = process.argv.indexOf('serve') === -1;
 
-gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:blog', 'build:misc']);
+gulp.task('build', ['build:html', 'build:css', 'build:js', 'build:blog', 'build:images', 'build:misc']);
 gulp.task('build:blog', ['build:blog:posts', 'build:blog:index', 'build:blog:rss']);
 
 gulp.task('build:html', function() {
